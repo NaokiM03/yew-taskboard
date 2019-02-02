@@ -17,26 +17,34 @@ impl Component for Model {
         false
     }
 }
- 
+
+fn view_column(status: u32, status_text: &str) -> Html<Model> {
+    html! {
+        <div class=format!("column status-{}", status),>
+            <div class="tags has-addons",>
+                <span class="tag",>{ status_text }</span>
+                <span class="tag is-dark",>{ 0 }</span>
+            </div>
+        </div>
+    }
+}
+
 impl Renderable<Model> for Model {
     fn view(&self) -> Html<Self> {
         html! {
             <section class="section", id="board",>
                 <div class="container",>
                     <div class="columns",>
-                        <div class="column status-1",>
-                            <div class="tags has-addons",>
-                                <span class="tag",>{ "未処理" }</span>
-                                <span class="tag is-dark",>{ 0 } </span>
-                            </div>
-                        </div>
+                        { view_column(1, "未対応") }
+                        { view_column(2, "処理中") }
+                        { view_column(3, "完了") }
                     </div>
                 </div>
              </section>
         }
     }
 }
- 
+
 fn main() {
     yew::initialize();
     App::<Model>::new().mount_to_body();
