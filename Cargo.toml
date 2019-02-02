@@ -5,3 +5,4 @@ authors = ["NaokiM03 <mattsun.phone@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+yew = { git = "https://github.com/DenisKolodin/yew" }
