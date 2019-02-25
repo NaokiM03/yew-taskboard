@@ -121,7 +121,7 @@ fn view_task((idx, task): (usize, &Task)) -> Html<Model> {
                 <a class="card-footer-item", onclick=|_| Msg::DecreaseStatus(idx),>{ "◀︎" }</a>
                 <a class="card-footer-item", onclick=|_| Msg::IncreaseStatus(idx),>{ "▶" }</a>
             </footer>
-            </div>
+        </div>
     }
 }
 
